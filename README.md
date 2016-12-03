@@ -47,13 +47,13 @@ export class ExampleComponent {
         let myUploadItem = new MyUploadItem((<HTMLInputElement>window.document.getElementById('myFileInputField')).files[0]);
         this.uploaderService.onSuccessUpload = () => {
              // success callback
-        }
+        };
         this.uploaderService.onError = () => {
              // error callback
-        }
+        };
         this.uploaderService.onCompleteUpload = () => {
              // complete callback, called regardless of success or failure
-        }
+        };
         this.uploaderService.upload(myUploadItem);
     }
 }
