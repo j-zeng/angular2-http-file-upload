@@ -1,7 +1,7 @@
 # angular2-http-file-upload
 Library to support http file uploads for Angular 2
 
-## Add upload service to your project
+## Add file upload service to your project
 ```
 // app.module.ts
 
@@ -14,7 +14,7 @@ import { Uploader }      from 'angular2-http-file-upload';
 export class AppModule { }
 ```
 
-## Set up an upload item
+## Set up a file upload item
 ```
 // my-upload-item.ts
 
@@ -30,7 +30,7 @@ export class MyUploadItem extends UploadItem {
 }
 ```
 
-## Use the upload service in a component
+## Use the file upload service in a component
 ```
 // example.component.ts
 
