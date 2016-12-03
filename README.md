@@ -3,6 +3,7 @@ Library to support http file uploads for Angular 2
 
 
 // my-upload-item.ts
+```
 import { UploadItem }    from 'angular2-http-file-upload';
 
 export class MyUploadItem extends UploadItem {
@@ -13,9 +14,11 @@ export class MyUploadItem extends UploadItem {
         this.file = file;
     }
 }
+```
 
 
 // example.component.ts
+```
 import { Uploader }      from 'angular2-http-file-upload';
 import { MyUploadItem }  from './my-upload-item';
 
@@ -23,7 +26,6 @@ import { MyUploadItem }  from './my-upload-item';
     // your component meta data here...
 })
 export class ExampleComponent {
-
     constructor(public uploaderService: Uploader) { }
 
     submit() {
@@ -40,3 +42,4 @@ export class ExampleComponent {
         this.uploaderService.upload(myUploadItem);
     }
 }
+```
