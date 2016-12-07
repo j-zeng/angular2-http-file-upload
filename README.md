@@ -62,9 +62,9 @@ export class ExampleComponent {
 }
 ```
 
-A progress callback is also available:
+An upload progress callback is also available:
 ```
-        this.uploaderService.onProgressUpload = (item, progress) => {
+        this.uploaderService.onProgressUpload = (item, percentComplete) => {
              // progress callback
         };
 ```
