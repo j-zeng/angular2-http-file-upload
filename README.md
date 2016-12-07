@@ -5,6 +5,7 @@ Library to support http file uploads for Angular 2
 ```
 // app.module.ts
 
+import { NgModule }      from '@angular/core';
 import { Uploader }      from 'angular2-http-file-upload';
 
 @NgModule({
