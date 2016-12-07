@@ -45,16 +45,25 @@ export class ExampleComponent {
 
     submit() {
         let myUploadItem = new MyUploadItem((<HTMLInputElement>window.document.getElementById('myFileInputField')).files[0]);
-        this.uploaderService.onSuccessUpload = () => {
+        myUploadItem.formData = { FormDataKey: 'Form Data Value' };  // (optional) form data can be sent with file
+
+        this.uploaderService.onSuccessUpload = (item, response, status, headers) => {
              // success callback
         };
-        this.uploaderService.onError = () => {
+        this.uploaderService.onError = (item, response, status, headers) => {
              // error callback
         };
-        this.uploaderService.onCompleteUpload = () => {
+        this.uploaderService.onCompleteUpload = (item, response, status, headers) => {
              // complete callback, called regardless of success or failure
         };
         this.uploaderService.upload(myUploadItem);
     }
 }
+```
+
+A progress callback is also available:
+```
+        this.uploaderService.onProgressUpload = (item, progress) => {
+             // progress callback
+        };
 ```
