@@ -45,6 +45,7 @@ export class ExampleComponent {
 
     submit() {
         let myUploadItem = new MyUploadItem((<HTMLInputElement>window.document.getElementById('myFileInputField')).files[0]);
+
         myUploadItem.formData = { FormDataKey: 'Form Data Value' };  // (optional) form data can be sent with file
 
         this.uploaderService.onSuccessUpload = (item, response, status, headers) => {
