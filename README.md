@@ -1,5 +1,5 @@
 # angular2-http-file-upload
-Library to support http file uploads for Angular 2
+Library to support HTTP file uploads for Angular 2
 
 ## Add file upload service to your project
 ```
@@ -46,8 +46,9 @@ export class ExampleComponent {
     constructor(public uploaderService: Uploader) { }
 
     submit() {
-        let myUploadItem = new MyUploadItem((<HTMLInputElement>window.document.getElementById('myFileInputField')).files[0]);
+        let uploadFile = (<HTMLInputElement>window.document.getElementById('myFileInputField')).files[0];
 
+        let myUploadItem = new MyUploadItem(uploadFile);
         myUploadItem.formData = { FormDataKey: 'Form Data Value' };  // (optional) form data can be sent with file
 
         this.uploaderService.onSuccessUpload = (item, response, status, headers) => {
