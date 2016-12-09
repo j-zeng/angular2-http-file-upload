@@ -35,6 +35,7 @@ export class MyUploadItem extends UploadItem {
 ```
 // example.component.ts
 
+import { Component }     from '@angular/core';
 import { Uploader }      from 'angular2-http-file-upload';
 import { MyUploadItem }  from './my-upload-item';
 
