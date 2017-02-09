@@ -71,6 +71,8 @@ export class Uploader {
         this.forEach(item.headers, (name: string, value: string) => {
             xhr.setRequestHeader(name, value);
         });
+        
+        item.xhr = xhr;
 
         xhr.send(form);
     }
