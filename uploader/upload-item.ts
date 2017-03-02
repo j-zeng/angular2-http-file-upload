@@ -1,4 +1,4 @@
-export class UploadItem {
+export public class UploadItem {
     method: string = 'POST';
     url: string = '';
     headers: any = {};
