@@ -4,16 +4,16 @@ import { UploadItem }  from './upload-item';
 
 @Injectable()
 export class Uploader {
-    onProgressUpload = (item: UploadItem, progress: number) => {};
-    onCompleteUpload = (item: UploadItem, response: any, status: any, headers: any) => {};
-    onSuccessUpload = (item: UploadItem, response: any, status: any, headers: any) => {};
-    onErrorUpload = (item: UploadItem, response: any, status: any, headers: any) => {};
-    onCancelUpload = (item: UploadItem, response: any, status: any, headers: any) => {};
+    public onProgressUpload = (item: UploadItem, progress: number) => {};
+    public onCompleteUpload = (item: UploadItem, response: any, status: any, headers: any) => {};
+    public onSuccessUpload = (item: UploadItem, response: any, status: any, headers: any) => {};
+    public onErrorUpload = (item: UploadItem, response: any, status: any, headers: any) => {};
+    public onCancelUpload = (item: UploadItem, response: any, status: any, headers: any) => {};
 
     constructor() { }
 
-    upload(item: UploadItem) {
-        if(this.isHTML5()) {
+    public upload(item: UploadItem) {
+        if (this.isHTML5()) {
             this.xhrTransport(item);
         } else {
             this.onErrorUpload(item, 'Unsupported browser.', null, null);
@@ -42,7 +42,7 @@ export class Uploader {
         xhr.onload = () => {
             let headers = this.parseHeaders(xhr.getAllResponseHeaders());
             let response = this.parseResponse(headers['Content-Type'], xhr.response);
-            if(this.isSuccessStatus(xhr.status)) {
+            if (this.isSuccessStatus(xhr.status)) {
                 this.onSuccessUpload(item, response, xhr.status, headers);
             } else {
                 this.onErrorUpload(item, response, xhr.status, headers);
@@ -80,7 +80,7 @@ export class Uploader {
     }
 
     private forEach(obj: any, callback: any) {
-        for (var i in obj) {
+        for (let i of obj) {
             if (obj.hasOwnProperty(i)) {
                 callback(i, obj[i]);
             }
@@ -92,7 +92,7 @@ export class Uploader {
         let lines = headers.split('\n');
         for (let i = 0; i < lines.length; i++) {
             let entry = lines[i].split(': ');
-            if(entry.length > 1) {
+            if (entry.length > 1) {
                 dict[entry[0]] = entry[1];
             }
         }
@@ -101,10 +101,10 @@ export class Uploader {
 
     private parseResponse(contentType: string, response: string) {
         let parsed = response;
-        if(contentType && contentType.indexOf('application/json') === 0) {
+        if (contentType && contentType.indexOf('application/json') === 0) {
             try {
                 parsed = JSON.parse(response);
-            } catch(e) {
+            } catch (e) {
             }
         }
         return parsed;
