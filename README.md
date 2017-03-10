@@ -54,7 +54,7 @@ export class ExampleComponent {
         this.uploaderService.onSuccessUpload = (item, response, status, headers) => {
              // success callback
         };
-        this.uploaderService.onError = (item, response, status, headers) => {
+        this.uploaderService.onErrorUpload = (item, response, status, headers) => {
              // error callback
         };
         this.uploaderService.onCompleteUpload = (item, response, status, headers) => {
