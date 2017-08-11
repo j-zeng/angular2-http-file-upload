@@ -41,7 +41,8 @@ export class Uploader {
 
         xhr.onload = () => {
             let headers = this.parseHeaders(xhr.getAllResponseHeaders());
-            let response = this.parseResponse(headers['Content-Type'], xhr.response);
+            const contentType = headers['Content-Type'] || headers['content-type'];
+            let response = this.parseResponse(contentType, xhr.response);
             if(this.isSuccessStatus(xhr.status)) {
                 this.onSuccessUpload(item, response, xhr.status, headers);
             } else {
@@ -52,14 +53,16 @@ export class Uploader {
 
         xhr.onerror = () => {
             let headers = this.parseHeaders(xhr.getAllResponseHeaders());
-            let response = this.parseResponse(headers['Content-Type'], xhr.response);
+            const contentType = headers['Content-Type'] || headers['content-type'];
+            let response = this.parseResponse(contentType, xhr.response);
             this.onErrorUpload(item, response, xhr.status, headers);
             this.onCompleteUpload(item, response, xhr.status, headers);
         };
 
         xhr.onabort = () => {
             let headers = this.parseHeaders(xhr.getAllResponseHeaders());
-            let response = this.parseResponse(headers['Content-Type'], xhr.response);
+            const contentType = headers['Content-Type'] || headers['content-type'];
+            let response = this.parseResponse(contentType, xhr.response);
             this.onCancelUpload(item, response, xhr.status, headers);
             this.onCompleteUpload(item, response, xhr.status, headers);
         };
