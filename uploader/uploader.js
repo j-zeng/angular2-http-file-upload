@@ -42,7 +42,7 @@ var Uploader = (function () {
         };
         xhr.onload = function () {
             var headers = _this.parseHeaders(xhr.getAllResponseHeaders());
-            var response = _this.parseResponse(headers['Content-Type'], xhr.response);
+            var response = _this.parseResponse(headers['Content-Type'] || headers['content-type'], xhr.response);
             if (_this.isSuccessStatus(xhr.status)) {
                 _this.onSuccessUpload(item, response, xhr.status, headers);
             }
@@ -53,13 +53,13 @@ var Uploader = (function () {
         };
         xhr.onerror = function () {
             var headers = _this.parseHeaders(xhr.getAllResponseHeaders());
-            var response = _this.parseResponse(headers['Content-Type'], xhr.response);
+            var response = _this.parseResponse(headers['Content-Type'] || headers['content-type'], xhr.response);
             _this.onErrorUpload(item, response, xhr.status, headers);
             _this.onCompleteUpload(item, response, xhr.status, headers);
         };
         xhr.onabort = function () {
             var headers = _this.parseHeaders(xhr.getAllResponseHeaders());
-            var response = _this.parseResponse(headers['Content-Type'], xhr.response);
+            var response = _this.parseResponse(headers['Content-Type'] || headers['content-type'], xhr.response);
             _this.onCancelUpload(item, response, xhr.status, headers);
             _this.onCompleteUpload(item, response, xhr.status, headers);
         };

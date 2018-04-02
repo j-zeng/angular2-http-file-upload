@@ -1,6 +1,6 @@
 {
   "name": "angular2-http-file-upload",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Library to support HTTP file uploads for Angular 2",
   "main": "index.js",
   "scripts": {
