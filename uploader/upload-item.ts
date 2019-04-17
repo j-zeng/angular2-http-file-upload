@@ -1,9 +1,9 @@
 export class UploadItem {
-    method: string = 'POST';
-    url: string = '';
-    headers: any = {};
-    formData: any = {};
-    withCredentials = false;
-    alias: string = 'file';
-    file: any = {};
+    public method: string = 'POST';
+    public url: string = '';
+    public headers: any = {};
+    public formData: any = {};
+    public withCredentials = false;
+    public alias: string = 'file';
+    public file: any = {};
 }
